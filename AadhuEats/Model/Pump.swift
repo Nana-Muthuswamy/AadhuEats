@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+struct Pump: VolumeConvertible {
+    var date: Date
+    var breastOrientation: Int
+    var volume: Double
+    var durationMinutes: Int
+
+}

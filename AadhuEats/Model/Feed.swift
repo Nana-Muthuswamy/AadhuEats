@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+struct Feed: VolumeConvertible {
+    var date: Date
+    var type: Int
+    var milkType: Int
+    var breastOrientation: Int
+    var volume: Double
+    var durationMinutes: Int
+
+}
