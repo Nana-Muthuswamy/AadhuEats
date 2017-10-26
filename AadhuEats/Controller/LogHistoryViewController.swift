@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  LogHistoryViewController.swift
 //  AadhuEats
 //
 //  Created by Nana on 10/26/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class LogHistoryViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
