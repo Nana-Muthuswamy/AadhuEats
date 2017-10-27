@@ -14,11 +14,11 @@
 		399288151FA1C61000E89470 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 399288131FA1C61000E89470 /* LaunchScreen.storyboard */; };
 		399288201FA1C61000E89470 /* AadhuEatsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3992881F1FA1C61000E89470 /* AadhuEatsTests.swift */; };
 		3992882B1FA1C61000E89470 /* AadhuEatsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3992882A1FA1C61000E89470 /* AadhuEatsUITests.swift */; };
-		3992883D1FA1CC4900E89470 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3992883C1FA1CC4900E89470 /* Feed.swift */; };
-		3992883F1FA1CC5800E89470 /* Pump.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3992883E1FA1CC5800E89470 /* Pump.swift */; };
-		399288411FA1CC8B00E89470 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399288401FA1CC8B00E89470 /* Log.swift */; };
+		3992883D1FA1CC4900E89470 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3992883C1FA1CC4900E89470 /* Log.swift */; };
+		399288411FA1CC8B00E89470 /* LogSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399288401FA1CC8B00E89470 /* LogSummary.swift */; };
 		399288431FA1D03100E89470 /* AddLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399288421FA1D03100E89470 /* AddLogViewController.swift */; };
 		399288461FA1D2E100E89470 /* VolumeConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399288451FA1D2E100E89470 /* VolumeConvertible.swift */; };
+		39C2CA4C1FA3EF0A0086BA87 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C2CA4B1FA3EF0A0086BA87 /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,11 +52,11 @@
 		399288261FA1C61000E89470 /* AadhuEatsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AadhuEatsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3992882A1FA1C61000E89470 /* AadhuEatsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AadhuEatsUITests.swift; sourceTree = "<group>"; };
 		3992882C1FA1C61000E89470 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3992883C1FA1CC4900E89470 /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
-		3992883E1FA1CC5800E89470 /* Pump.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pump.swift; sourceTree = "<group>"; };
-		399288401FA1CC8B00E89470 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		3992883C1FA1CC4900E89470 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		399288401FA1CC8B00E89470 /* LogSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogSummary.swift; sourceTree = "<group>"; };
 		399288421FA1D03100E89470 /* AddLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLogViewController.swift; sourceTree = "<group>"; };
 		399288451FA1D2E100E89470 /* VolumeConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeConvertible.swift; sourceTree = "<group>"; };
+		39C2CA4B1FA3EF0A0086BA87 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,10 +148,10 @@
 		399288391FA1C77900E89470 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3992883C1FA1CC4900E89470 /* Feed.swift */,
-				3992883E1FA1CC5800E89470 /* Pump.swift */,
-				399288401FA1CC8B00E89470 /* Log.swift */,
+				3992883C1FA1CC4900E89470 /* Log.swift */,
+				399288401FA1CC8B00E89470 /* LogSummary.swift */,
 				399288451FA1D2E100E89470 /* VolumeConvertible.swift */,
+				39C2CA4B1FA3EF0A0086BA87 /* DataManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -308,10 +308,10 @@
 			files = (
 				3992880D1FA1C61000E89470 /* LogHistoryViewController.swift in Sources */,
 				399288431FA1D03100E89470 /* AddLogViewController.swift in Sources */,
-				3992883D1FA1CC4900E89470 /* Feed.swift in Sources */,
-				399288411FA1CC8B00E89470 /* Log.swift in Sources */,
+				3992883D1FA1CC4900E89470 /* Log.swift in Sources */,
+				39C2CA4C1FA3EF0A0086BA87 /* DataManager.swift in Sources */,
+				399288411FA1CC8B00E89470 /* LogSummary.swift in Sources */,
 				3992880B1FA1C61000E89470 /* AppDelegate.swift in Sources */,
-				3992883F1FA1CC5800E89470 /* Pump.swift in Sources */,
 				399288461FA1D2E100E89470 /* VolumeConvertible.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
