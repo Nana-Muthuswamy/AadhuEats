@@ -24,6 +24,10 @@ struct LogSummary: Exportable, DateFormatable {
     var totalDurationMinutes: Int {
         return logs.filter{$0.type == LogType.breastFeed}.reduce(0){$0 + $1.durationMinutes}
     }
+
+    var displayDate: String {
+        return Log.dateFormatter.string(from: date)
+    }
     
     init?(source:Dictionary<String, Any>) {
         guard let logSummaryDateStr = source[kDate] as? String, let logSummaryDate = LogSummary.dateFormatter.date(from: logSummaryDateStr),

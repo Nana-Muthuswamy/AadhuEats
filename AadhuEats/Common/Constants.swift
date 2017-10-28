@@ -18,6 +18,9 @@ let kLogs = "logs"
 // Other constants
 let kSavedLogHistory = "history"
 
+// UI View constants
+let kSummaryCellIdentifier = "Summary"
+
 
 
 

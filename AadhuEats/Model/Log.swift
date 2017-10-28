@@ -16,6 +16,11 @@ struct Log: Exportable, DateFormatable {
     var volume: Int
     var durationMinutes: Int
 
+    var displayDate: String {
+        return Log.dateFormatter.string(from: date)
+    }
+
+
     init?(source:Dictionary<String,Any>) {
         // Guard the initiation source
         guard let logDateStr = source[kDate] as? String, let logDate = Log.dateFormatter.date(from:logDateStr),

@@ -14,16 +14,19 @@ class DataManager {
     static let shared = DataManager()
 
     // Log History
-    private var logHistory: Array<LogSummary>
+    private var _logHistory: Array<LogSummary>
+    var logHistory: Array<LogSummary> {
+        return _logHistory
+    }
 
     // Private Init to suppress instantiation
     private init() {
-        logHistory = Array<LogSummary>()
+        _logHistory = Array<LogSummary>()
         // Load from saved logs, if present
         if let savedLogHistory = UserDefaults.standard.array(forKey:"history") as? Array<Dictionary<String,Any>> {
             for logSummaryArr in savedLogHistory {
                 if let logSummary = LogSummary(source: logSummaryArr) {
-                    logHistory.append(logSummary)
+                    _logHistory.append(logSummary)
                 }
             }
         }
@@ -34,10 +37,10 @@ class DataManager {
     func reloadLogHistory() {
         // Reload from saved logs, if present
         if let savedLogHistory = UserDefaults.standard.array(forKey:"history") as? Array<Dictionary<String,Any>> {
-            logHistory = Array<LogSummary>()
+            _logHistory = Array<LogSummary>()
             for logSummaryArr in savedLogHistory {
                 if let logSummary = LogSummary(source: logSummaryArr) {
-                    logHistory.append(logSummary)
+                    _logHistory.append(logSummary)
                 }
             }
         }
@@ -47,8 +50,8 @@ class DataManager {
     // TBD: CloudKit integration
     func cacheLogHistory() {
         // Save current logs
-        if logHistory.count > 0 {
-            UserDefaults.standard.set(logHistory, forKey: kSavedLogHistory)
+        if _logHistory.count > 0 {
+            UserDefaults.standard.set(_logHistory, forKey: kSavedLogHistory)
         } else { // Remove cached logs
             UserDefaults.standard.removeObject(forKey: kSavedLogHistory)
         }
