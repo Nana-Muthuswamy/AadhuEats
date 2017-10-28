@@ -11,3 +11,18 @@ import Foundation
 protocol Exportable {
     func export() -> Dictionary<String,Any>
 }
+
+protocol DateFormatable {
+    static var dateFormatter: DateFormatter {get}
+}
+
+extension DateFormatable {
+    static var dateFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.locale = Locale.autoupdatingCurrent
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .none
+
+        return formatter
+    }
+}

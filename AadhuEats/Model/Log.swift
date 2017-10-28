@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Log: Exportable {
+struct Log: Exportable, DateFormatable {
     var date = Date()
     var type: LogType
     var milkType: MilkType
@@ -18,7 +18,7 @@ struct Log: Exportable {
 
     init?(source:Dictionary<String,Any>) {
         // Guard the initiation source
-        guard let logDate = source[kDate] as? Date,
+        guard let logDateStr = source[kDate] as? String, let logDate = Log.dateFormatter.date(from:logDateStr),
             let logTypeRaw = source[kType] as? Int, let logType = LogType(rawValue: logTypeRaw),
             let logMilkTypeRaw = source[kMilkType] as? Int, let logMilkType = MilkType(rawValue: logMilkTypeRaw),
             let logBreastOrientationRaw = source[kBreastOrientation] as? Int, let logBreastOrientation = BreastOrientation(rawValue: logBreastOrientationRaw),
@@ -42,7 +42,7 @@ struct Log: Exportable {
     func export() -> Dictionary<String,Any> {
 
         var exportDict = Dictionary<String,Any>()
-        exportDict.updateValue(date, forKey: kDate)
+        exportDict.updateValue(Log.dateFormatter.string(from: date), forKey: kDate)
         exportDict.updateValue(type, forKey: type.key)
         exportDict.updateValue(type, forKey: type.key)
         exportDict.updateValue(type, forKey: type.key)

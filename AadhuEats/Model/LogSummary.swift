@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct LogSummary: Exportable {
+struct LogSummary: Exportable, DateFormatable {
     var date: Date
     var logs: Array<Log>
 
@@ -24,9 +24,10 @@ struct LogSummary: Exportable {
     var totalDurationMinutes: Int {
         return logs.filter{$0.type == LogType.breastFeed}.reduce(0){$0 + $1.durationMinutes}
     }
-
+    
     init?(source:Dictionary<String, Any>) {
-        guard let logSummaryDate = source[kDate] as? Date, let summaryLogs = source[kLogs] as? Array<Dictionary<String,Any>> else {
+        guard let logSummaryDateStr = source[kDate] as? String, let logSummaryDate = LogSummary.dateFormatter.date(from: logSummaryDateStr),
+            let summaryLogs = source[kLogs] as? Array<Dictionary<String,Any>> else {
             return nil
         }
 
@@ -43,7 +44,7 @@ struct LogSummary: Exportable {
     func export() -> Dictionary<String,Any> {
         var exportDict = Dictionary<String,Any>()
 
-        exportDict.updateValue(date, forKey: kDate)
+        exportDict.updateValue(Log.dateFormatter.string(from: date), forKey: kDate)
 
         var exportLogs = Array<Dictionary<String,Any>>()
         for log in logs {
