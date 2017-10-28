@@ -1,5 +1,5 @@
 //
-//  VolumeConvertible.swift
+//  Protocols.swift
 //  AadhuEats
 //
 //  Created by Nana on 10/26/17.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol VolumeConvertible {
-
+protocol Exportable {
+    func export() -> Dictionary<String,Any>
 }

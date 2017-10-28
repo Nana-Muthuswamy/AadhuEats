@@ -17,8 +17,10 @@
 		3992883D1FA1CC4900E89470 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3992883C1FA1CC4900E89470 /* Log.swift */; };
 		399288411FA1CC8B00E89470 /* LogSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399288401FA1CC8B00E89470 /* LogSummary.swift */; };
 		399288431FA1D03100E89470 /* AddLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399288421FA1D03100E89470 /* AddLogViewController.swift */; };
-		399288461FA1D2E100E89470 /* VolumeConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399288451FA1D2E100E89470 /* VolumeConvertible.swift */; };
+		399288461FA1D2E100E89470 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399288451FA1D2E100E89470 /* Protocols.swift */; };
 		39C2CA4C1FA3EF0A0086BA87 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C2CA4B1FA3EF0A0086BA87 /* DataManager.swift */; };
+		39C2CA4E1FA433770086BA87 /* ModelUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C2CA4D1FA433770086BA87 /* ModelUtils.swift */; };
+		39C2CA501FA433810086BA87 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C2CA4F1FA433810086BA87 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,8 +57,10 @@
 		3992883C1FA1CC4900E89470 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		399288401FA1CC8B00E89470 /* LogSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogSummary.swift; sourceTree = "<group>"; };
 		399288421FA1D03100E89470 /* AddLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLogViewController.swift; sourceTree = "<group>"; };
-		399288451FA1D2E100E89470 /* VolumeConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeConvertible.swift; sourceTree = "<group>"; };
+		399288451FA1D2E100E89470 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		39C2CA4B1FA3EF0A0086BA87 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		39C2CA4D1FA433770086BA87 /* ModelUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelUtils.swift; sourceTree = "<group>"; };
+		39C2CA4F1FA433810086BA87 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +142,8 @@
 			isa = PBXGroup;
 			children = (
 				3992880A1FA1C61000E89470 /* AppDelegate.swift */,
+				399288451FA1D2E100E89470 /* Protocols.swift */,
+				39C2CA4F1FA433810086BA87 /* Constants.swift */,
 				3992880E1FA1C61000E89470 /* Main.storyboard */,
 				399288111FA1C61000E89470 /* Assets.xcassets */,
 				399288131FA1C61000E89470 /* LaunchScreen.storyboard */,
@@ -150,8 +156,8 @@
 			children = (
 				3992883C1FA1CC4900E89470 /* Log.swift */,
 				399288401FA1CC8B00E89470 /* LogSummary.swift */,
-				399288451FA1D2E100E89470 /* VolumeConvertible.swift */,
 				39C2CA4B1FA3EF0A0086BA87 /* DataManager.swift */,
+				39C2CA4D1FA433770086BA87 /* ModelUtils.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -312,7 +318,9 @@
 				39C2CA4C1FA3EF0A0086BA87 /* DataManager.swift in Sources */,
 				399288411FA1CC8B00E89470 /* LogSummary.swift in Sources */,
 				3992880B1FA1C61000E89470 /* AppDelegate.swift in Sources */,
-				399288461FA1D2E100E89470 /* VolumeConvertible.swift in Sources */,
+				399288461FA1D2E100E89470 /* Protocols.swift in Sources */,
+				39C2CA4E1FA433770086BA87 /* ModelUtils.swift in Sources */,
+				39C2CA501FA433810086BA87 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
