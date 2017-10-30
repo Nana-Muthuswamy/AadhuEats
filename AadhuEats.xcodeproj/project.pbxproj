@@ -19,6 +19,8 @@
 		399288431FA1D03100E89470 /* AddLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399288421FA1D03100E89470 /* AddLogViewController.swift */; };
 		399288461FA1D2E100E89470 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399288451FA1D2E100E89470 /* Protocols.swift */; };
 		39B43F3C1FA7645000837ACE /* ViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B43F3B1FA7645000837ACE /* ViewUtils.swift */; };
+		39B43F3E1FA7AAAA00837ACE /* LogSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B43F3D1FA7AAAA00837ACE /* LogSummaryView.swift */; };
+		39B43F401FA7AAC500837ACE /* LogSummaryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39B43F3F1FA7AAC500837ACE /* LogSummaryView.xib */; };
 		39C2CA4C1FA3EF0A0086BA87 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C2CA4B1FA3EF0A0086BA87 /* DataManager.swift */; };
 		39C2CA4E1FA433770086BA87 /* ModelUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C2CA4D1FA433770086BA87 /* ModelUtils.swift */; };
 		39C2CA501FA433810086BA87 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C2CA4F1FA433810086BA87 /* Constants.swift */; };
@@ -60,6 +62,8 @@
 		399288421FA1D03100E89470 /* AddLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLogViewController.swift; sourceTree = "<group>"; };
 		399288451FA1D2E100E89470 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		39B43F3B1FA7645000837ACE /* ViewUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewUtils.swift; sourceTree = "<group>"; };
+		39B43F3D1FA7AAAA00837ACE /* LogSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogSummaryView.swift; sourceTree = "<group>"; };
+		39B43F3F1FA7AAC500837ACE /* LogSummaryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LogSummaryView.xib; sourceTree = "<group>"; };
 		39C2CA4B1FA3EF0A0086BA87 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		39C2CA4D1FA433770086BA87 /* ModelUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelUtils.swift; sourceTree = "<group>"; };
 		39C2CA4F1FA433810086BA87 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -177,6 +181,8 @@
 			isa = PBXGroup;
 			children = (
 				39B43F3B1FA7645000837ACE /* ViewUtils.swift */,
+				39B43F3D1FA7AAAA00837ACE /* LogSummaryView.swift */,
+				39B43F3F1FA7AAC500837ACE /* LogSummaryView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -290,6 +296,7 @@
 			files = (
 				399288151FA1C61000E89470 /* LaunchScreen.storyboard in Resources */,
 				399288121FA1C61000E89470 /* Assets.xcassets in Resources */,
+				39B43F401FA7AAC500837ACE /* LogSummaryView.xib in Resources */,
 				399288101FA1C61000E89470 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -319,6 +326,7 @@
 				399288431FA1D03100E89470 /* AddLogViewController.swift in Sources */,
 				3992883D1FA1CC4900E89470 /* Log.swift in Sources */,
 				39C2CA4C1FA3EF0A0086BA87 /* DataManager.swift in Sources */,
+				39B43F3E1FA7AAAA00837ACE /* LogSummaryView.swift in Sources */,
 				399288411FA1CC8B00E89470 /* LogSummary.swift in Sources */,
 				3992880B1FA1C61000E89470 /* AppDelegate.swift in Sources */,
 				39B43F3C1FA7645000837ACE /* ViewUtils.swift in Sources */,

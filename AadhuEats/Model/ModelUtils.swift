@@ -24,4 +24,17 @@ enum BreastOrientation: Int {
     case left
     case both
     case none
+
+    var description: String {
+        switch self {
+        case .right:
+            return "Right Breast"
+        case .left:
+            return "Left Breast"
+        case .both:
+            return "Both Breasts"
+        case .none:
+            return ""
+        }
+    }
 }

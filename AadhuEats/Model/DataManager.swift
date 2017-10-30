@@ -84,13 +84,13 @@ extension DataManager {
         dateComponents.hour = 20
         let yesterdayLog3Date = calendar.date(byAdding: dateComponents, to: currentDate)
 
-        let todayLog1 = Log(date: todayLog1Date!, type: .breastPump, milkType: .breast, breastOrientation: .both, volume: 100, durationMinutes: 20)
-        let todayLog2 = Log(date: todayLog2Date!, type: .breastFeed, milkType: .breast, breastOrientation: .none, volume: 100, durationMinutes: 40)
-        let todayLog3 = Log(date: todayLog3Date!, type: .bottleFeed, milkType: .formula, breastOrientation: .none, volume: 100, durationMinutes: 50)
+        let todayLog1 = Log(date: todayLog1Date!, type: .breastPump, milkType: .breast, breastOrientation: .both, volume: 100, duration: 20)
+        let todayLog2 = Log(date: todayLog2Date!, type: .breastFeed, milkType: .breast, breastOrientation: .none, volume: 100, duration: 40)
+        let todayLog3 = Log(date: todayLog3Date!, type: .bottleFeed, milkType: .formula, breastOrientation: .none, volume: 100, duration: 50)
 
-        let yesterdayLog1 = Log(date: yesterdayLog1Date!, type: .breastPump, milkType: .breast, breastOrientation: .both, volume: 100, durationMinutes: 20)
-        let yesterdayLog2 = Log(date: yesterdayLog2Date!, type: .breastFeed, milkType: .breast, breastOrientation: .none, volume: 100, durationMinutes: 40)
-        let yesterdayLog3 = Log(date: yesterdayLog3Date!, type: .bottleFeed, milkType: .formula, breastOrientation: .none, volume: 100, durationMinutes: 50)
+        let yesterdayLog1 = Log(date: yesterdayLog1Date!, type: .breastPump, milkType: .breast, breastOrientation: .both, volume: 100, duration: 20)
+        let yesterdayLog2 = Log(date: yesterdayLog2Date!, type: .breastFeed, milkType: .breast, breastOrientation: .none, volume: 100, duration: 40)
+        let yesterdayLog3 = Log(date: yesterdayLog3Date!, type: .bottleFeed, milkType: .formula, breastOrientation: .none, volume: 100, duration: 50)
 
         dateComponents = calendar.dateComponents([.day,.month,.year], from: currentDate)
         let todayLogSummaryDate = calendar.date(from: dateComponents)

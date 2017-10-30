@@ -21,8 +21,8 @@ struct LogSummary: Exportable, DateFormatable {
     var totalBreastPumpVolume: Int {
         return logs.filter{$0.type == LogType.breastPump}.reduce(0){$0 + $1.volume}
     }
-    var totalDurationMinutes: Int {
-        return logs.filter{$0.type == LogType.breastFeed}.reduce(0){$0 + $1.durationMinutes}
+    var totalDuration: Int {
+        return logs.filter{$0.type == LogType.breastFeed}.reduce(0){$0 + $1.duration}
     }
 
     var displayDate: String {
@@ -37,8 +37,8 @@ struct LogSummary: Exportable, DateFormatable {
     var displayTotalBreastPumpVolume: String {
         return "\(totalBreastPumpVolume) ml"
     }
-    var displayTotalDurationMinutes: String {
-        return "\(totalDurationMinutes) mins"
+    var displayTotalDuration: String {
+        return "\(totalDuration) mins"
     }
 
 

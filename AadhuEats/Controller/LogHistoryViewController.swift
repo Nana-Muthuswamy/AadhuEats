@@ -8,19 +8,20 @@
 
 import UIKit
 
-class LogHistoryViewController: UIViewController, UITableViewDataSource {
+class LogHistoryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
 
-    var logHistoryData: Array<LogSummary> {
+    private var logHistoryData: Array<LogSummary> {
         return DataManager.shared.logHistory.sorted{$0.date > $1.date}
     }
 
-    var numberOfRowsToDisplay: Int {
+    private var numberOfSectionsToDisplay: Int {
         // TBD: Based on selected Summary row's logs, need to calculate rows.
         return DataManager.shared.logHistory.count
     }
 
+    private var sectionDisplayed = -1 // default value
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,29 +30,77 @@ class LogHistoryViewController: UIViewController, UITableViewDataSource {
 
     // MARK: UITableViewDataSource
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return numberOfSectionsToDisplay
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return numberOfRowsToDisplay
+        if section == sectionDisplayed {
+            return logHistoryData[section].logs.count + 1 // Consdering Summary cell view display too
+        } else {
+            return 1 // Default row for Summary cell view display
+        }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // TBD: On row selections, pick appropriate cell identifier based on indexpath.
-        if let cell = tableView.dequeueReusableCell(withIdentifier: kSummaryCellIdentifier) {
+        let logSummary = logHistoryData[indexPath.section]
 
-            let data = logHistoryData
+        switch indexPath.row {
+        case 0:
+            if let cell = tableView.dequeueReusableCell(withIdentifier: kSummaryCellIdentifier) {
 
-            (cell.viewWithTag(SummaryCellView.date.rawValue) as? UILabel)?.text = data[indexPath.row].displayDate
-            (cell.viewWithTag(SummaryCellView.totalFeed.rawValue) as? UILabel)?.text = "\(data[indexPath.row].displayTotalFeedVolume)"
-            (cell.viewWithTag(SummaryCellView.totalBreastFeed.rawValue) as? UILabel)?.text = "\(data[indexPath.row].displayTotalBreastFeedVolume)"
-            (cell.viewWithTag(SummaryCellView.totalPumped.rawValue) as? UILabel)?.text = "\(data[indexPath.row].displayTotalBreastPumpVolume)"
-            (cell.viewWithTag(SummaryCellView.totalLatch.rawValue) as? UILabel)?.text = "\(data[indexPath.row].displayTotalDurationMinutes)"
+                (cell.viewWithTag(SummaryCellView.date.rawValue) as? UILabel)?.text = logSummary.displayDate
+                (cell.viewWithTag(SummaryCellView.totalFeed.rawValue) as? UILabel)?.text = "\(logSummary.displayTotalFeedVolume)"
+                (cell.viewWithTag(SummaryCellView.totalBreastFeed.rawValue) as? UILabel)?.text = "\(logSummary.displayTotalBreastFeedVolume)"
+                (cell.viewWithTag(SummaryCellView.totalPumped.rawValue) as? UILabel)?.text = "\(logSummary.displayTotalBreastPumpVolume)"
+                (cell.viewWithTag(SummaryCellView.totalLatch.rawValue) as? UILabel)?.text = "\(logSummary.displayTotalDuration)"
 
-            return cell
+                return cell
+            }
+
+        default:
+            let log = logSummary.logs[indexPath.row - 1] // Offset for summary view displayed always @ index 0
+
+            switch log.type {
+            case .breastPump:
+                if let cell = tableView.dequeueReusableCell(withIdentifier: kPumpLogCellIdentifier) {
+                    (cell.viewWithTag(PumpLogCellView.date.rawValue) as? UILabel)?.text = log.displayDate
+                    (cell.viewWithTag(PumpLogCellView.duration.rawValue) as? UILabel)?.text = log.displayDuration
+                    (cell.viewWithTag(PumpLogCellView.volume.rawValue) as? UILabel)?.text = log.displayVolume
+                    return cell
+                }
+            case .bottleFeed:
+                if let cell = tableView.dequeueReusableCell(withIdentifier: kBottleFeedLogCellIdentifier) {
+                    (cell.viewWithTag(BottleFeedLogCellView.date.rawValue) as? UILabel)?.text = log.displayDate
+                    (cell.viewWithTag(BottleFeedLogCellView.milkType.rawValue) as? UIImageView)?.image = log.milkType == .breast ?  UIImage(contentsOfFile: "BreastMilkType") : UIImage(contentsOfFile: "FormulaMilkType")
+                    (cell.viewWithTag(PumpLogCellView.volume.rawValue) as? UILabel)?.text = log.displayVolume
+                    return cell
+                }
+            case .breastFeed:
+                if let cell = tableView.dequeueReusableCell(withIdentifier: kBreastFeedLogCellIdentifier) {
+                    (cell.viewWithTag(BreastFeedLogCellView.date.rawValue) as? UILabel)?.text = log.displayDate
+                    (cell.viewWithTag(BreastFeedLogCellView.orientation.rawValue) as? UILabel)?.text = log.breastOrientation.description
+                    (cell.viewWithTag(PumpLogCellView.duration.rawValue) as? UILabel)?.text = log.displayDuration
+                    return cell
+                }
+            }
         }
 
         return UITableViewCell()
+    }
+
+    // MARK: UITableViewDelegate
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            if sectionDisplayed == indexPath.section {
+                sectionDisplayed = -1
+            } else {
+                sectionDisplayed = indexPath.section
+            }
+
+            tableView.reloadData()
+        }
     }
 }
 

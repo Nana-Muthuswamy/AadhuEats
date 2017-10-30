@@ -14,19 +14,27 @@ struct Log: Exportable, DateFormatable {
     var milkType: MilkType
     var breastOrientation: BreastOrientation
     var volume: Int
-    var durationMinutes: Int
+    var duration: Int
 
     var displayDate: String {
         return Log.dateFormatter.string(from: date)
     }
 
-    init(date: Date, type: LogType, milkType: MilkType, breastOrientation: BreastOrientation, volume: Int, durationMinutes: Int) {
+    var displayVolume: String {
+        return "\(volume) ml"
+    }
+
+    var displayDuration: String {
+        return "\(duration) mins"
+    }
+
+    init(date: Date, type: LogType, milkType: MilkType, breastOrientation: BreastOrientation, volume: Int, duration: Int) {
         self.date = date
         self.type = type
         self.milkType = milkType
         self.breastOrientation = breastOrientation
         self.volume = volume
-        self.durationMinutes = durationMinutes
+        self.duration = duration
     }
 
     init?(source:Dictionary<String,Any>) {
@@ -36,7 +44,7 @@ struct Log: Exportable, DateFormatable {
             let logMilkTypeRaw = source[kMilkType] as? Int, let logMilkType = MilkType(rawValue: logMilkTypeRaw),
             let logBreastOrientationRaw = source[kBreastOrientation] as? Int, let logBreastOrientation = BreastOrientation(rawValue: logBreastOrientationRaw),
             let logVolume = source[kVolume] as? Int,
-            let logDurationMinutes = source[kDurationMinutes] as? Int else {
+            let logDuration = source[kDuration] as? Int else {
                 return nil
         }
 
@@ -45,11 +53,11 @@ struct Log: Exportable, DateFormatable {
         milkType = logMilkType
         breastOrientation = logBreastOrientation
         volume = logVolume
-        durationMinutes = logDurationMinutes
+        duration = logDuration
     }
 
     func description() -> String {
-        return "Log of type \"\(type)\" with milkType \"\(milkType)\" and breastOrientation \"\(breastOrientation)\" tracked at \"\(date)\" for volume \"\(volume)\" in durationMinutes \"\(durationMinutes)\""
+        return "Log of type \"\(type)\" with milkType \"\(milkType)\" and breastOrientation \"\(breastOrientation)\" tracked at \"\(date)\" for volume \"\(volume)\" in durationMinutes \"\(duration)\""
     }
 
     func export() -> Dictionary<String,Any> {
@@ -60,7 +68,7 @@ struct Log: Exportable, DateFormatable {
         exportDict.updateValue(milkType.rawValue, forKey: kMilkType)
         exportDict.updateValue(breastOrientation.rawValue, forKey: kBreastOrientation)
         exportDict.updateValue(volume, forKey: kVolume)
-        exportDict.updateValue(durationMinutes, forKey: kDurationMinutes)
+        exportDict.updateValue(duration, forKey: kDuration)
 
         return exportDict
     }

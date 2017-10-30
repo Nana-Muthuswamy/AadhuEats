@@ -12,14 +12,26 @@ let kType = "type"
 let kMilkType = "milkType"
 let kBreastOrientation = "breastOrientation"
 let kVolume = "volume"
-let kDurationMinutes = "durationMinutes"
+let kDuration = "duration"
 let kLogs = "logs"
+let kDisplayDate = "displayDate"
+let kTotalFeedVolume = "totalFeedVolume"
+let kTotalBreastFeedVolume = "totalBreastFeedVolume"
+let kTotalBreastPumpVolume = "totalBreastPumpVolume"
+let kTotalDurationMinutes = "totalDurationMinutes"
+let kDisplayTotalFeedVolume = "displayTotalFeedVolume"
+let kDisplayTotalBreastFeedVolume = "displayTotalBreastFeedVolume"
+let kDisplayTotalBreastPumpVolume = "displayTotalBreastPumpVolume"
+let kDisplayTotalDurationMinutes = "displayTotalDurationMinutes"
 
 // Other constants
 let kSavedLogHistory = "history"
 
 // UI View constants
 let kSummaryCellIdentifier = "Summary"
+let kPumpLogCellIdentifier = "PumpLog"
+let kBottleFeedLogCellIdentifier = "BottleFeedLog"
+let kBreastFeedLogCellIdentifier = "BreastFeedLog"
 
 
 
