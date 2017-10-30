@@ -20,6 +20,14 @@ struct Log: Exportable, DateFormatable {
         return Log.dateFormatter.string(from: date)
     }
 
+    init(date: Date, type: LogType, milkType: MilkType, breastOrientation: BreastOrientation, volume: Int, durationMinutes: Int) {
+        self.date = date
+        self.type = type
+        self.milkType = milkType
+        self.breastOrientation = breastOrientation
+        self.volume = volume
+        self.durationMinutes = durationMinutes
+    }
 
     init?(source:Dictionary<String,Any>) {
         // Guard the initiation source
@@ -41,18 +49,18 @@ struct Log: Exportable, DateFormatable {
     }
 
     func description() -> String {
-        return "Log of type \"\(type.key)\" with milkType \"\(milkType.key)\" and breastOrientation \"\(breastOrientation.key)\" tracked at \"\(date)\" for volume \"\(volume)\" in durationMinutes \"\(durationMinutes)\""
+        return "Log of type \"\(type)\" with milkType \"\(milkType)\" and breastOrientation \"\(breastOrientation)\" tracked at \"\(date)\" for volume \"\(volume)\" in durationMinutes \"\(durationMinutes)\""
     }
 
     func export() -> Dictionary<String,Any> {
 
         var exportDict = Dictionary<String,Any>()
         exportDict.updateValue(Log.dateFormatter.string(from: date), forKey: kDate)
-        exportDict.updateValue(type, forKey: type.key)
-        exportDict.updateValue(type, forKey: type.key)
-        exportDict.updateValue(type, forKey: type.key)
-        exportDict.updateValue(type, forKey: type.key)
-        exportDict.updateValue(type, forKey: type.key)
+        exportDict.updateValue(type.rawValue, forKey: kType)
+        exportDict.updateValue(milkType.rawValue, forKey: kMilkType)
+        exportDict.updateValue(breastOrientation.rawValue, forKey: kBreastOrientation)
+        exportDict.updateValue(volume, forKey: kVolume)
+        exportDict.updateValue(durationMinutes, forKey: kDurationMinutes)
 
         return exportDict
     }

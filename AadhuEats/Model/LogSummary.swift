@@ -28,6 +28,12 @@ struct LogSummary: Exportable, DateFormatable {
     var displayDate: String {
         return Log.dateFormatter.string(from: date)
     }
+
+    init(date: Date, logs: Array<Log>) {
+
+        self.date = date
+        self.logs = logs
+    }
     
     init?(source:Dictionary<String, Any>) {
         guard let logSummaryDateStr = source[kDate] as? String, let logSummaryDate = LogSummary.dateFormatter.date(from: logSummaryDateStr),
