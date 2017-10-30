@@ -8,9 +8,21 @@
 
 import UIKit
 
+enum SummaryCellView: Int {
+    case date = 1
+    case totalFeed
+    case totalBreastFeed
+    case totalPumped
+    case totalLatch
+}
+
 class LogHistoryViewController: UIViewController, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
+
+    var logHistoryData: Array<LogSummary> {
+        return DataManager.shared.logHistory.sorted{$0.date > $1.date}
+    }
 
     var numberOfRowsToDisplay: Int {
         // TBD: Based on selected Summary row's logs, need to calculate rows.
@@ -35,6 +47,15 @@ class LogHistoryViewController: UIViewController, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // TBD: On row selections, pick appropriate cell identifier based on indexpath.
         if let cell = tableView.dequeueReusableCell(withIdentifier: kSummaryCellIdentifier) {
+
+            let data = logHistoryData
+
+            (cell.viewWithTag(SummaryCellView.date.rawValue) as? UILabel)?.text = data[indexPath.row].displayDate
+            (cell.viewWithTag(SummaryCellView.totalFeed.rawValue) as? UILabel)?.text = "\(data[indexPath.row].displayTotalFeedVolume)"
+            (cell.viewWithTag(SummaryCellView.totalBreastFeed.rawValue) as? UILabel)?.text = "\(data[indexPath.row].displayTotalBreastFeedVolume)"
+            (cell.viewWithTag(SummaryCellView.totalPumped.rawValue) as? UILabel)?.text = "\(data[indexPath.row].displayTotalBreastPumpVolume)"
+            (cell.viewWithTag(SummaryCellView.totalLatch.rawValue) as? UILabel)?.text = "\(data[indexPath.row].displayTotalDurationMinutes)"
+
             return cell
         }
 

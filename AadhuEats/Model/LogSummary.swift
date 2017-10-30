@@ -28,6 +28,19 @@ struct LogSummary: Exportable, DateFormatable {
     var displayDate: String {
         return Log.dateFormatter.string(from: date)
     }
+    var displayTotalFeedVolume: String {
+        return "\(totalFeedVolume) ml"
+    }
+    var displayTotalBreastFeedVolume: String {
+        return "\(totalBreastFeedVolume) ml"
+    }
+    var displayTotalBreastPumpVolume: String {
+        return "\(totalBreastPumpVolume) ml"
+    }
+    var displayTotalDurationMinutes: String {
+        return "\(totalDurationMinutes) mins"
+    }
+
 
     init(date: Date, logs: Array<Log>) {
 
