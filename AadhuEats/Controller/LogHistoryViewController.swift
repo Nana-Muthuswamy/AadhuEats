@@ -8,14 +8,6 @@
 
 import UIKit
 
-enum SummaryCellView: Int {
-    case date = 1
-    case totalFeed
-    case totalBreastFeed
-    case totalPumped
-    case totalLatch
-}
-
 class LogHistoryViewController: UIViewController, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!

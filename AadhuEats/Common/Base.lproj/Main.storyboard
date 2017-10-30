@@ -123,12 +123,169 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Log" id="r9i-JU-dLR">
-                                        <rect key="frame" x="0.0" y="143.5" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PumpLog" rowHeight="51" id="r9i-JU-dLR">
+                                        <rect key="frame" x="0.0" y="143.5" width="375" height="51"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="r9i-JU-dLR" id="5M4-Ax-rIG">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="50.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="08:00 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b7H-sU-SlA">
+                                                    <rect key="frame" x="8" y="15" width="60" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="soz-Cr-jm3"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="40 mins" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uJh-HU-hL6">
+                                                    <rect key="frame" x="148" y="15" width="49" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="ZAN-PI-Fqs"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BreastPumpLog" translatesAutoresizingMaskIntoConstraints="NO" id="rAf-sZ-aKf">
+                                                    <rect key="frame" x="88" y="5" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="hd3-oq-YwB"/>
+                                                        <constraint firstAttribute="width" constant="40" id="l1q-Un-pig"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100 ml" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="718-f6-LPj">
+                                                    <rect key="frame" x="217" y="15" width="49" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="COB-QZ-flW"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="uJh-HU-hL6" firstAttribute="centerY" secondItem="b7H-sU-SlA" secondAttribute="centerY" id="4hg-nI-vcl"/>
+                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="718-f6-LPj" secondAttribute="trailing" id="IT1-1k-UTb"/>
+                                                <constraint firstItem="rAf-sZ-aKf" firstAttribute="leading" secondItem="b7H-sU-SlA" secondAttribute="trailing" constant="20" id="Ld9-Lb-oqd"/>
+                                                <constraint firstItem="718-f6-LPj" firstAttribute="centerY" secondItem="b7H-sU-SlA" secondAttribute="centerY" id="Pox-nD-hb6"/>
+                                                <constraint firstItem="uJh-HU-hL6" firstAttribute="leading" secondItem="rAf-sZ-aKf" secondAttribute="trailing" constant="20" id="QRh-XJ-TNV"/>
+                                                <constraint firstItem="b7H-sU-SlA" firstAttribute="leading" secondItem="5M4-Ax-rIG" secondAttribute="leadingMargin" id="Wz2-qb-22I"/>
+                                                <constraint firstItem="b7H-sU-SlA" firstAttribute="top" secondItem="5M4-Ax-rIG" secondAttribute="topMargin" constant="7" id="Yey-jt-5dj"/>
+                                                <constraint firstItem="rAf-sZ-aKf" firstAttribute="centerY" secondItem="b7H-sU-SlA" secondAttribute="centerY" id="ioJ-eW-wrl"/>
+                                                <constraint firstItem="718-f6-LPj" firstAttribute="leading" secondItem="uJh-HU-hL6" secondAttribute="trailing" constant="20" id="n8a-mO-NTo"/>
+                                                <constraint firstItem="718-f6-LPj" firstAttribute="width" secondItem="uJh-HU-hL6" secondAttribute="width" id="vS4-KT-hdy"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BottleFeedLog" rowHeight="51" id="BKR-9h-9N7">
+                                        <rect key="frame" x="0.0" y="194.5" width="375" height="51"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BKR-9h-9N7" id="lnx-YD-lUh">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="50.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="08:00 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d1K-C6-IaG">
+                                                    <rect key="frame" x="8" y="15" width="60" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="PDL-Qg-mNH"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BottleFeedLog" translatesAutoresizingMaskIntoConstraints="NO" id="ECb-NV-roV">
+                                                    <rect key="frame" x="88" y="5" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" id="Te1-gB-wbp"/>
+                                                        <constraint firstAttribute="height" constant="40" id="oKG-8b-D58"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100 ml" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ROI-K4-LEU">
+                                                    <rect key="frame" x="208" y="15" width="40.5" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="fzc-D7-crm"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BreastMilkType" translatesAutoresizingMaskIntoConstraints="NO" id="YKx-FU-HpQ">
+                                                    <rect key="frame" x="148" y="5" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="UCf-Nt-dDM"/>
+                                                        <constraint firstAttribute="width" constant="40" id="h9I-IS-fsR"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ROI-K4-LEU" firstAttribute="centerY" secondItem="d1K-C6-IaG" secondAttribute="centerY" id="3dy-yf-0ds"/>
+                                                <constraint firstItem="ECb-NV-roV" firstAttribute="centerY" secondItem="d1K-C6-IaG" secondAttribute="centerY" id="E7V-Ya-SCP"/>
+                                                <constraint firstItem="ECb-NV-roV" firstAttribute="leading" secondItem="d1K-C6-IaG" secondAttribute="trailing" constant="20" id="cbi-f7-FQ3"/>
+                                                <constraint firstItem="d1K-C6-IaG" firstAttribute="leading" secondItem="lnx-YD-lUh" secondAttribute="leadingMargin" id="eC4-M1-HOt"/>
+                                                <constraint firstItem="d1K-C6-IaG" firstAttribute="top" secondItem="lnx-YD-lUh" secondAttribute="topMargin" constant="7" id="h49-Li-8q7"/>
+                                                <constraint firstItem="YKx-FU-HpQ" firstAttribute="leading" secondItem="ECb-NV-roV" secondAttribute="trailing" constant="20" id="mQx-2e-Df3"/>
+                                                <constraint firstItem="ROI-K4-LEU" firstAttribute="leading" secondItem="YKx-FU-HpQ" secondAttribute="trailing" constant="20" id="ugg-xf-RIc"/>
+                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="ROI-K4-LEU" secondAttribute="trailing" id="wM9-eW-F7e"/>
+                                                <constraint firstItem="YKx-FU-HpQ" firstAttribute="centerY" secondItem="d1K-C6-IaG" secondAttribute="centerY" id="xSe-MH-jgX"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BreastFeedLog" rowHeight="51" id="xAS-lL-L2p">
+                                        <rect key="frame" x="0.0" y="245.5" width="375" height="51"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xAS-lL-L2p" id="4IW-14-NHV">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="50.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="08:00 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AwQ-pQ-YCf">
+                                                    <rect key="frame" x="8" y="15" width="60" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="lRF-69-F4M"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Right" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t25-HB-Xgb">
+                                                    <rect key="frame" x="148" y="15" width="49" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="rC1-QQ-JlL"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BreastFeedLog" translatesAutoresizingMaskIntoConstraints="NO" id="TbW-7N-Q8e">
+                                                    <rect key="frame" x="88" y="5" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="7Y4-a6-hf4"/>
+                                                        <constraint firstAttribute="width" constant="40" id="ZCa-gR-oSA"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30 mins" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4D3-u9-HhJ">
+                                                    <rect key="frame" x="217" y="15" width="49" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="aPk-vX-tuJ"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="AwQ-pQ-YCf" firstAttribute="top" secondItem="4IW-14-NHV" secondAttribute="topMargin" constant="7" id="1zu-ee-wMN"/>
+                                                <constraint firstItem="TbW-7N-Q8e" firstAttribute="centerY" secondItem="AwQ-pQ-YCf" secondAttribute="centerY" id="G1Q-CY-eS4"/>
+                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="4D3-u9-HhJ" secondAttribute="trailing" id="L5i-ZJ-JQa"/>
+                                                <constraint firstItem="4D3-u9-HhJ" firstAttribute="centerY" secondItem="AwQ-pQ-YCf" secondAttribute="centerY" id="WH0-h5-rJb"/>
+                                                <constraint firstItem="4D3-u9-HhJ" firstAttribute="width" secondItem="t25-HB-Xgb" secondAttribute="width" id="YRM-8o-Hf4"/>
+                                                <constraint firstItem="t25-HB-Xgb" firstAttribute="leading" secondItem="TbW-7N-Q8e" secondAttribute="trailing" constant="20" id="kPf-qZ-07g"/>
+                                                <constraint firstItem="TbW-7N-Q8e" firstAttribute="leading" secondItem="AwQ-pQ-YCf" secondAttribute="trailing" constant="20" id="mSw-ZC-cyo"/>
+                                                <constraint firstItem="4D3-u9-HhJ" firstAttribute="leading" secondItem="t25-HB-Xgb" secondAttribute="trailing" constant="20" id="n1X-of-H6w"/>
+                                                <constraint firstItem="AwQ-pQ-YCf" firstAttribute="leading" secondItem="4IW-14-NHV" secondAttribute="leadingMargin" id="wLS-64-rKN"/>
+                                                <constraint firstItem="t25-HB-Xgb" firstAttribute="centerY" secondItem="AwQ-pQ-YCf" secondAttribute="centerY" id="zob-OE-LOd"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
@@ -175,4 +332,10 @@
             <point key="canvasLocation" x="134" y="-81"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="BottleFeedLog" width="512" height="512"/>
+        <image name="BreastFeedLog" width="1600" height="1600"/>
+        <image name="BreastMilkType" width="1600" height="1600"/>
+        <image name="BreastPumpLog" width="1600" height="1600"/>
+    </resources>
 </document>

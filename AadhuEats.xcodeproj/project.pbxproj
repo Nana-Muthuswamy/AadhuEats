@@ -18,6 +18,7 @@
 		399288411FA1CC8B00E89470 /* LogSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399288401FA1CC8B00E89470 /* LogSummary.swift */; };
 		399288431FA1D03100E89470 /* AddLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399288421FA1D03100E89470 /* AddLogViewController.swift */; };
 		399288461FA1D2E100E89470 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399288451FA1D2E100E89470 /* Protocols.swift */; };
+		39B43F3C1FA7645000837ACE /* ViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B43F3B1FA7645000837ACE /* ViewUtils.swift */; };
 		39C2CA4C1FA3EF0A0086BA87 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C2CA4B1FA3EF0A0086BA87 /* DataManager.swift */; };
 		39C2CA4E1FA433770086BA87 /* ModelUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C2CA4D1FA433770086BA87 /* ModelUtils.swift */; };
 		39C2CA501FA433810086BA87 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C2CA4F1FA433810086BA87 /* Constants.swift */; };
@@ -58,6 +59,7 @@
 		399288401FA1CC8B00E89470 /* LogSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogSummary.swift; sourceTree = "<group>"; };
 		399288421FA1D03100E89470 /* AddLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLogViewController.swift; sourceTree = "<group>"; };
 		399288451FA1D2E100E89470 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		39B43F3B1FA7645000837ACE /* ViewUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewUtils.swift; sourceTree = "<group>"; };
 		39C2CA4B1FA3EF0A0086BA87 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		39C2CA4D1FA433770086BA87 /* ModelUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelUtils.swift; sourceTree = "<group>"; };
 		39C2CA4F1FA433810086BA87 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 		3992883B1FA1C79300E89470 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				39B43F3B1FA7645000837ACE /* ViewUtils.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 				39C2CA4C1FA3EF0A0086BA87 /* DataManager.swift in Sources */,
 				399288411FA1CC8B00E89470 /* LogSummary.swift in Sources */,
 				3992880B1FA1C61000E89470 /* AppDelegate.swift in Sources */,
+				39B43F3C1FA7645000837ACE /* ViewUtils.swift in Sources */,
 				399288461FA1D2E100E89470 /* Protocols.swift in Sources */,
 				39C2CA4E1FA433770086BA87 /* ModelUtils.swift in Sources */,
 				39C2CA501FA433810086BA87 /* Constants.swift in Sources */,
