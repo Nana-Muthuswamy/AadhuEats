@@ -17,21 +17,21 @@ enum SummaryCellView: Int {
 }
 
 enum PumpLogCellView: Int {
-    case date = 1
+    case time = 1
     case type
     case duration
     case volume
 }
 
 enum BottleFeedLogCellView: Int {
-    case date = 1
+    case time = 1
     case type
     case milkType
     case volume
 }
 
 enum BreastFeedLogCellView: Int {
-    case date = 1
+    case time = 1
     case type
     case orientation
     case duration

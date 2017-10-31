@@ -20,6 +20,11 @@ struct Log: Exportable, DateFormatable {
         return Log.dateFormatter.string(from: date)
     }
 
+    var displayTime: String {
+        return Log.timeFormatter.string(from: date)
+    }
+
+
     var displayVolume: String {
         return "\(volume) ml"
     }

@@ -14,6 +14,7 @@ protocol Exportable {
 
 protocol DateFormatable {
     static var dateFormatter: DateFormatter {get}
+    static var timeFormatter: DateFormatter {get}
 }
 
 extension DateFormatable {
@@ -22,6 +23,15 @@ extension DateFormatable {
         formatter.locale = Locale.autoupdatingCurrent
         formatter.dateStyle = .medium
         formatter.timeStyle = .none
+
+        return formatter
+    }
+    static var timeFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.locale = Locale.autoupdatingCurrent
+        formatter.dateStyle = .none
+        formatter.timeStyle = .short
+        formatter.dateFormat = "HH:MM a"
 
         return formatter
     }
