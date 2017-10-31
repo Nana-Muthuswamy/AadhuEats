@@ -72,7 +72,7 @@ class LogHistoryViewController: UIViewController, UITableViewDataSource, UITable
             case .bottleFeed:
                 if let cell = tableView.dequeueReusableCell(withIdentifier: kBottleFeedLogCellIdentifier) {
                     (cell.viewWithTag(BottleFeedLogCellView.date.rawValue) as? UILabel)?.text = log.displayDate
-                    (cell.viewWithTag(BottleFeedLogCellView.milkType.rawValue) as? UIImageView)?.image = log.milkType == .breast ?  UIImage(contentsOfFile: "BreastMilkType") : UIImage(contentsOfFile: "FormulaMilkType")
+                    (cell.viewWithTag(BottleFeedLogCellView.milkType.rawValue) as? UIImageView)?.image = log.milkType == .breast ? UIImage(named: "BreastMilkType") : UIImage(named: "FormulaMilkType")
                     (cell.viewWithTag(PumpLogCellView.volume.rawValue) as? UILabel)?.text = log.displayVolume
                     return cell
                 }
@@ -80,7 +80,7 @@ class LogHistoryViewController: UIViewController, UITableViewDataSource, UITable
                 if let cell = tableView.dequeueReusableCell(withIdentifier: kBreastFeedLogCellIdentifier) {
                     (cell.viewWithTag(BreastFeedLogCellView.date.rawValue) as? UILabel)?.text = log.displayDate
                     (cell.viewWithTag(BreastFeedLogCellView.orientation.rawValue) as? UILabel)?.text = log.breastOrientation.description
-                    (cell.viewWithTag(PumpLogCellView.duration.rawValue) as? UILabel)?.text = log.displayDuration
+                    (cell.viewWithTag(BreastFeedLogCellView.duration.rawValue) as? UILabel)?.text = log.displayDuration
                     return cell
                 }
             }
