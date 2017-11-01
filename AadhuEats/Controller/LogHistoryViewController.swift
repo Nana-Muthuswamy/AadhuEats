@@ -102,5 +102,8 @@ class LogHistoryViewController: UIViewController, UITableViewDataSource, UITable
             tableView.reloadData()
         }
     }
+
+    // MARK: Segue
+
 }
 
