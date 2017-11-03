@@ -50,57 +50,51 @@ class AddLogViewController: UIViewController {
 
         guard let logType = LogType(rawValue: sender.selectedSegmentIndex + 1) else {return}
 
-        // Make sure no pending layout operations are present
-        self.view.layoutIfNeeded()
+        switch logType {
+        case .pumpSession:
+            // Remove irrelevant fields
+            self.milkTypeControl.alpha = 0
+            self.breastOrientationControl.alpha = 0
+            self.milkTypeControlHeight.constant = 0
+            self.breastOrientationControlHeight.constant = 0
 
-        UIView.animate(withDuration: 1.0) {
-            switch logType {
-            case .pumpSession:
-                // Remove irrelevant fields
-                self.milkTypeControl.alpha = 0
-                self.breastOrientationControl.alpha = 0
-                self.milkTypeControlHeight.constant = 0
-                self.breastOrientationControlHeight.constant = 0
-
-                // For animating Constraint constant changes
-                self.view.layoutIfNeeded()
-
+            UIView.animate(withDuration: 1.0, animations: {
                 // Display relevant fields
                 self.durationPicker.alpha = 1
                 self.volumePicker.alpha = 1
                 self.durationPickerHeight.constant = self.defaultHeights[self.durationPickerHeight]!
                 self.volumePickerHeight.constant = self.defaultHeights[self.volumePickerHeight]!
-            case .bottleFeed:
-                // Remove irrelevant fields
-                self.durationPicker.alpha = 0
-                self.breastOrientationControl.alpha = 0
-                self.durationPickerHeight.constant = 0
-                self.breastOrientationControlHeight.constant = 0
+            })
 
-                // For animating Constraint constant changes
-                self.view.layoutIfNeeded()
+        case .bottleFeed:
+            // Remove irrelevant fields
+            self.durationPicker.alpha = 0
+            self.breastOrientationControl.alpha = 0
+            self.durationPickerHeight.constant = 0
+            self.breastOrientationControlHeight.constant = 0
 
+            UIView.animate(withDuration: 1.0, animations: {
                 // Display relevant fields
                 self.volumePicker.alpha = 1
                 self.milkTypeControl.alpha = 1
                 self.volumePickerHeight.constant = self.defaultHeights[self.volumePickerHeight]!
                 self.milkTypeControlHeight.constant = self.defaultHeights[self.milkTypeControlHeight]!
-            case .breastFeed:
-                // Remove irrelevant fields
-                self.volumePicker.alpha = 0
-                self.milkTypeControl.alpha = 0
-                self.volumePickerHeight.constant = 0
-                self.milkTypeControlHeight.constant = 0
+            })
 
-                // For animating Constraint constant changes
-                self.view.layoutIfNeeded()
+        case .breastFeed:
+            // Remove irrelevant fields
+            self.volumePicker.alpha = 0
+            self.milkTypeControl.alpha = 0
+            self.volumePickerHeight.constant = 0
+            self.milkTypeControlHeight.constant = 0
 
+            UIView.animate(withDuration: 1.0, animations: {
                 // Display relevant fields
                 self.durationPickerHeight.constant = self.defaultHeights[self.durationPickerHeight]!
                 self.breastOrientationControlHeight.constant = self.defaultHeights[self.breastOrientationControlHeight]!
                 self.durationPicker.alpha = 1
                 self.breastOrientationControl.alpha = 1
-            }
+            })
         }
     }
 
