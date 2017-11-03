@@ -13,13 +13,13 @@ struct LogSummary: Exportable, DateFormatable {
     var logs: Array<Log>
 
     var totalFeedVolume: Int {
-        return logs.filter{$0.type != LogType.breastPump}.reduce(0){$0 + $1.volume}
+        return logs.filter{$0.type != LogType.pumpSession}.reduce(0){$0 + $1.volume}
     }
     var totalBreastFeedVolume: Int {
         return logs.filter{$0.type == LogType.breastFeed || ($0.type == LogType.bottleFeed && $0.milkType == MilkType.breast)}.reduce(0){$0 + $1.volume}
     }
     var totalBreastPumpVolume: Int {
-        return logs.filter{$0.type == LogType.breastPump}.reduce(0){$0 + $1.volume}
+        return logs.filter{$0.type == LogType.pumpSession}.reduce(0){$0 + $1.volume}
     }
     var totalDuration: Int {
         return logs.filter{$0.type == LogType.breastFeed}.reduce(0){$0 + $1.duration}

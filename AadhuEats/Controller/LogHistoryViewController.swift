@@ -62,7 +62,7 @@ class LogHistoryViewController: UIViewController, UITableViewDataSource, UITable
             let log = logSummary.logs[indexPath.row - 1] // Offset for summary view displayed always @ index 0
 
             switch log.type {
-            case .breastPump:
+            case .pumpSession:
                 if let cell = tableView.dequeueReusableCell(withIdentifier: kPumpLogCellIdentifier) {
                     (cell.viewWithTag(PumpLogCellView.time.rawValue) as? UILabel)?.text = log.displayTime
                     (cell.viewWithTag(PumpLogCellView.duration.rawValue) as? UILabel)?.text = log.displayDuration

@@ -33,7 +33,7 @@ let kPumpLogCellIdentifier = "PumpLog"
 let kBottleFeedLogCellIdentifier = "BottleFeedLog"
 let kBreastFeedLogCellIdentifier = "BreastFeedLog"
 
-
-
+// Segue Identifier constants
+let kAddLogSegue = "AddLog"
 
 
