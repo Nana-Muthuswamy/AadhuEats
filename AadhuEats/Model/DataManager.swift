@@ -48,7 +48,9 @@ class DataManager {
         }) {
             // Get the matched summary and add the log
             var matchedSummary = _logHistory.remove(at: matchedIndex)
-            matchedSummary.logs.append(log)
+            var matchedSummaryLogs = matchedSummary.logs
+            matchedSummaryLogs.append(log)
+            matchedSummary.logs = matchedSummaryLogs.sorted{$0.date > $1.date}
             // Add back the updated summary
             _logHistory.insert(matchedSummary, at: matchedIndex)
 

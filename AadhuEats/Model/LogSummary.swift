@@ -45,7 +45,7 @@ struct LogSummary: Exportable, DateFormatable {
     init(date: Date, logs: Array<Log>) {
 
         self.date = date
-        self.logs = logs
+        self.logs = logs.sorted{$0.date > $1.date} // store logs in descending order of logged dates
     }
     
     init?(source:Dictionary<String, Any>) {
@@ -56,12 +56,14 @@ struct LogSummary: Exportable, DateFormatable {
 
         date = logSummaryDate
 
-        logs = Array<Log>()
+        var logList = Array<Log>()
         for logDict in summaryLogs {
             if let log = Log(source: logDict) {
-                logs.append(log)
+                logList.append(log)
             }
         }
+
+        logs = logList.sorted{$0.date > $1.date} // store logs in descending order of logged dates
     }
 
     func export() -> Dictionary<String,Any> {

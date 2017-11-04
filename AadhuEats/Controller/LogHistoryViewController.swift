@@ -23,12 +23,20 @@ class LogHistoryViewController: UIViewController, UITableViewDataSource, UITable
 
     private var sectionDisplayed = -1 // default value
 
+    // MARK: View Controller Life Cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+
     // MARK: UITableViewDataSource
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return numberOfSectionsToDisplay
     }
