@@ -31,7 +31,7 @@ extension DateFormatable {
         formatter.locale = Locale.autoupdatingCurrent
         formatter.dateStyle = .none
         formatter.timeStyle = .short
-        formatter.dateFormat = "HH:MM a"
+        formatter.dateFormat = "hh:mm a"
 
         return formatter
     }

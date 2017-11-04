@@ -11,10 +11,9 @@ import UIKit
 class AddLogViewController: UIViewController {
 
     @IBOutlet weak var logTypeControl: UISegmentedControl!
-    @IBOutlet weak var logDetailsView: UIView!
 
-    @IBOutlet weak var logDatePicker: UIView!
-    @IBOutlet weak var durationPicker: UIView!
+    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var durationPicker: UIPickerView!
     @IBOutlet weak var volumePicker: UIPickerView!
     @IBOutlet weak var milkTypeControl: UISegmentedControl!
     @IBOutlet weak var breastOrientationControl: UISegmentedControl!
@@ -28,7 +27,7 @@ class AddLogViewController: UIViewController {
     var defaultHeights = [NSLayoutConstraint:CGFloat]()
 
     // Log Model
-    lazy var logModel = Log(date: Date(), type: .pumpSession, milkType: .breast, breastOrientation: .none, volume: 0, duration: 0)
+    var model = Log(date: Date(), type: .pumpSession, milkType: .breast, breastOrientation: .none, volume: 0, duration: 0)
 
     // MARK: View Controller Life Cycle
     override func viewDidLoad() {
@@ -40,16 +39,50 @@ class AddLogViewController: UIViewController {
         defaultHeights.updateValue(milkTypeControlHeight.constant, forKey: milkTypeControlHeight)
         defaultHeights.updateValue(breastOrientationControlHeight.constant, forKey: breastOrientationControlHeight)
 
-        // Display default Pump session log
+        // Display default Pump session log details
         logTypeSelected(logTypeControl)
+        // Setup Log Date picker
     }
 
-    // MARK: Action Methods
+    // MARK: Util Methods
 
-    @IBAction func logTypeSelected(_ sender: UISegmentedControl) {
+    func saveModel() {
+        if (DataManager.shared.addLog(model) == false) {
+            let alert = UIAlertController(title: "Operation Failed", message: "Unable to create new log.", preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (action) in
+                self.dismiss(animated: true, completion: nil)
+            }))
+            show(alert, sender: self)
+        }
+    }
 
-        guard let logType = LogType(rawValue: sender.selectedSegmentIndex + 1) else {return}
+    func updateModel(for logType: LogType) {
+        model.type = logType
+        model.date = datePicker.date
 
+        switch logType {
+        case .pumpSession:
+            model.duration = durationPicker.selectedRow(inComponent: 0)
+            model.volume = volumePicker.selectedRow(inComponent: 0)
+            // set defaults for rest
+            model.breastOrientation = .both
+            model.milkType = .breast
+        case .bottleFeed:
+            model.milkType = MilkType(rawValue: milkTypeControl.selectedSegmentIndex) ?? .breast
+            model.volume = volumePicker.selectedRow(inComponent: 0)
+            // set defaults for rest
+            model.breastOrientation = .none
+            model.duration = 0
+        case .breastFeed:
+            model.duration = durationPicker.selectedRow(inComponent: 0)
+            model.breastOrientation = BreastOrientation(rawValue: breastOrientationControl.selectedSegmentIndex) ?? .both
+            // set defaults for rest
+            model.milkType = .breast
+            model.volume = 0
+        }
+    }
+
+    func updateUI(for logType: LogType) {
         switch logType {
         case .pumpSession:
             // Remove irrelevant fields
@@ -98,7 +131,27 @@ class AddLogViewController: UIViewController {
         }
     }
 
+    func setupDatePicker() {
+        datePicker.calendar = Calendar.autoupdatingCurrent
+        datePicker.locale = Locale.autoupdatingCurrent
+        datePicker.timeZone = TimeZone.autoupdatingCurrent
+        datePicker.setDate(model.date, animated: true)
+        datePicker.maximumDate = model.date.endOfDay()
+    }
+
+    // MARK: Action Methods
+
+    @IBAction func logTypeSelected(_ sender: UISegmentedControl) {
+
+        guard let logType = LogType(rawValue: sender.selectedSegmentIndex) else {return}
+        // Update UI and Model for selected log type
+        updateUI(for: logType)
+    }
+
     @IBAction func saveLog(_ sender: Any) {
+        updateModel(for: (LogType(rawValue: logTypeControl.selectedSegmentIndex) ?? .pumpSession))
+        saveModel()
+        dismiss(animated: true, completion: nil)
     }
 
     @IBAction func discardLog(_ sender: Any) {
@@ -106,6 +159,7 @@ class AddLogViewController: UIViewController {
     }
 }
 
+// MARK: Picker View Extension
 extension AddLogViewController: UIPickerViewDelegate, UIPickerViewDataSource {
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -146,16 +200,6 @@ extension AddLogViewController: UIPickerViewDelegate, UIPickerViewDataSource {
                 return "ml"
             } else {
                 return ""
-            }
-        }
-    }
-
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if component == 0 {
-            if pickerView == durationPicker {
-                logModel.duration = row
-            } else if pickerView == volumePicker {
-                logModel.volume = row
             }
         }
     }

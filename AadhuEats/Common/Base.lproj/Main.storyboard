@@ -392,7 +392,7 @@
                                             <segment title="Formula Milk"/>
                                         </segments>
                                     </segmentedControl>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="gLK-F8-WNo">
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="gLK-F8-WNo">
                                         <rect key="frame" x="0.0" y="502" width="343" height="29"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="28" id="B1A-iq-Sga"/>
@@ -451,10 +451,9 @@
                     <connections>
                         <outlet property="breastOrientationControl" destination="gLK-F8-WNo" id="Kih-gi-ctw"/>
                         <outlet property="breastOrientationControlHeight" destination="B1A-iq-Sga" id="T1A-HT-8u9"/>
-                        <outlet property="durationPicker" destination="LAW-Zo-sAw" id="XJJ-Ii-z5w"/>
+                        <outlet property="datePicker" destination="yFn-pa-Nqz" id="Nwe-7L-Hcc"/>
+                        <outlet property="durationPicker" destination="LAW-Zo-sAw" id="uze-uV-TgQ"/>
                         <outlet property="durationPickerHeight" destination="Dt5-tV-4VJ" id="XXh-Qe-Aqa"/>
-                        <outlet property="logDatePicker" destination="yFn-pa-Nqz" id="5te-kC-V2f"/>
-                        <outlet property="logDetailsView" destination="uXb-S8-AnI" id="whF-sL-F6q"/>
                         <outlet property="logTypeControl" destination="dss-1Y-VJP" id="GbV-RV-XEO"/>
                         <outlet property="milkTypeControl" destination="OwG-JD-1Ju" id="y3y-kx-T3e"/>
                         <outlet property="milkTypeControlHeight" destination="N0N-CE-lXM" id="glV-1u-KrP"/>

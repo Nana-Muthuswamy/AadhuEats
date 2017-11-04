@@ -9,18 +9,18 @@
 import Foundation
 
 enum LogType: Int {
-    case pumpSession = 1
+    case pumpSession
     case bottleFeed
     case breastFeed
 }
 
 enum MilkType: Int {
-    case breast = 1
+    case breast
     case formula
 }
 
 enum BreastOrientation: Int {
-    case left = 1
+    case left
     case both
     case right
     case none

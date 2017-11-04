@@ -24,6 +24,7 @@
 		39C2CA4C1FA3EF0A0086BA87 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C2CA4B1FA3EF0A0086BA87 /* DataManager.swift */; };
 		39C2CA4E1FA433770086BA87 /* ModelUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C2CA4D1FA433770086BA87 /* ModelUtils.swift */; };
 		39C2CA501FA433810086BA87 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C2CA4F1FA433810086BA87 /* Constants.swift */; };
+		39CAA8A01FADA70900BB32C8 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CAA89F1FADA70900BB32C8 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		39C2CA4B1FA3EF0A0086BA87 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		39C2CA4D1FA433770086BA87 /* ModelUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelUtils.swift; sourceTree = "<group>"; };
 		39C2CA4F1FA433810086BA87 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		39CAA89F1FADA70900BB32C8 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 			children = (
 				3992880A1FA1C61000E89470 /* AppDelegate.swift */,
 				399288451FA1D2E100E89470 /* Protocols.swift */,
+				39CAA89F1FADA70900BB32C8 /* Extensions.swift */,
 				39C2CA4F1FA433810086BA87 /* Constants.swift */,
 				3992880E1FA1C61000E89470 /* Main.storyboard */,
 				399288111FA1C61000E89470 /* Assets.xcassets */,
@@ -329,6 +332,7 @@
 				39B43F3E1FA7AAAA00837ACE /* LogSummaryView.swift in Sources */,
 				399288411FA1CC8B00E89470 /* LogSummary.swift in Sources */,
 				3992880B1FA1C61000E89470 /* AppDelegate.swift in Sources */,
+				39CAA8A01FADA70900BB32C8 /* Extensions.swift in Sources */,
 				39B43F3C1FA7645000837ACE /* ViewUtils.swift in Sources */,
 				399288461FA1D2E100E89470 /* Protocols.swift in Sources */,
 				39C2CA4E1FA433770086BA87 /* ModelUtils.swift in Sources */,
