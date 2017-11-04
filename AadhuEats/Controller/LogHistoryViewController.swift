@@ -67,7 +67,7 @@ class LogHistoryViewController: UIViewController, UITableViewDataSource, UITable
             }
 
         default:
-            let log = logSummary.logs[indexPath.row - 1] // Offset for summary view displayed always @ index 0
+            let log = logSummary.logs[indexPath.logRow()]
 
             switch log.type {
             case .pumpSession:
@@ -97,6 +97,14 @@ class LogHistoryViewController: UIViewController, UITableViewDataSource, UITable
         return UITableViewCell()
     }
 
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        guard indexPath.row > 0 else {
+            return false
+        }
+
+        return true
+    }
+
     // MARK: UITableViewDelegate
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -110,8 +118,23 @@ class LogHistoryViewController: UIViewController, UITableViewDataSource, UITable
             tableView.reloadData()
         }
     }
+    // TBD: Data operations done in delegate method. Instead should make use of data source methods.
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let rowAction = UITableViewRowAction(style: .default, title: "Remove") { (action, path) in
+            _ = DataManager.shared.deleteLog(at: indexPath.logRow(), in: indexPath.section)
+            self.tableView.reloadData()
+        }
+        return [rowAction]
+    }
 
     // MARK: Segue
 
 }
 
+// File scoped extension to return decremented row values of indexpath applicable just for this controller class
+// This is to avoid manipulating the indexpath's row all over the controller's code.
+fileprivate extension IndexPath {
+    func logRow() -> Int {
+        return (self.row - 1)
+    }
+}

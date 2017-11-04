@@ -62,6 +62,17 @@ class DataManager {
         return true
     }
 
+    func deleteLog(at row: Int, in summaryIndex: Int) -> Bool {
+        var summaryLog = _logHistory.remove(at: summaryIndex)
+        summaryLog.logs.remove(at: row)
+
+        if summaryLog.logs.count > 0 {
+            _logHistory.insert(summaryLog, at: summaryIndex)
+        }
+
+        return true
+    }
+
     // Reload log history
     // TBD: CloudKit integration
     func reloadLogHistory() {
