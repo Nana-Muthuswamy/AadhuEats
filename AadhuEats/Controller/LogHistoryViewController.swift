@@ -116,6 +116,8 @@ class LogHistoryViewController: UIViewController, UITableViewDataSource, UITable
             }
 
             tableView.reloadData()
+        } else {
+            tableView.deselectRow(at: indexPath, animated: true)
         }
     }
     // TBD: Data operations done in delegate method. Instead should make use of data source methods.
