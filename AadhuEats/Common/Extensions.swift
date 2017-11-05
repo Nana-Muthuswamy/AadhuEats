@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 extension Date {
 
@@ -55,5 +56,15 @@ extension Date {
         dateComps.day! += 1
 
         return calendar.date(from: dateComps) ?? self
+    }
+}
+
+extension UIViewController {
+    var contentViewController: UIViewController {
+        if (self is UINavigationController) {
+            return (self as! UINavigationController).viewControllers[0]
+        } else {
+            return self
+        }
     }
 }

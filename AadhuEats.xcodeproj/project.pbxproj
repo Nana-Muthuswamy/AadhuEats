@@ -16,7 +16,7 @@
 		3992882B1FA1C61000E89470 /* AadhuEatsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3992882A1FA1C61000E89470 /* AadhuEatsUITests.swift */; };
 		3992883D1FA1CC4900E89470 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3992883C1FA1CC4900E89470 /* Log.swift */; };
 		399288411FA1CC8B00E89470 /* LogSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399288401FA1CC8B00E89470 /* LogSummary.swift */; };
-		399288431FA1D03100E89470 /* AddLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399288421FA1D03100E89470 /* AddLogViewController.swift */; };
+		399288431FA1D03100E89470 /* LogDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399288421FA1D03100E89470 /* LogDetailsViewController.swift */; };
 		399288461FA1D2E100E89470 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399288451FA1D2E100E89470 /* Protocols.swift */; };
 		39B43F3C1FA7645000837ACE /* ViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B43F3B1FA7645000837ACE /* ViewUtils.swift */; };
 		39B43F3E1FA7AAAA00837ACE /* LogSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B43F3D1FA7AAAA00837ACE /* LogSummaryView.swift */; };
@@ -60,7 +60,7 @@
 		3992882C1FA1C61000E89470 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3992883C1FA1CC4900E89470 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		399288401FA1CC8B00E89470 /* LogSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogSummary.swift; sourceTree = "<group>"; };
-		399288421FA1D03100E89470 /* AddLogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLogViewController.swift; sourceTree = "<group>"; };
+		399288421FA1D03100E89470 /* LogDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogDetailsViewController.swift; sourceTree = "<group>"; };
 		399288451FA1D2E100E89470 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		39B43F3B1FA7645000837ACE /* ViewUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewUtils.swift; sourceTree = "<group>"; };
 		39B43F3D1FA7AAAA00837ACE /* LogSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogSummaryView.swift; sourceTree = "<group>"; };
@@ -175,7 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				3992880C1FA1C61000E89470 /* LogHistoryViewController.swift */,
-				399288421FA1D03100E89470 /* AddLogViewController.swift */,
+				399288421FA1D03100E89470 /* LogDetailsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -183,9 +183,9 @@
 		3992883B1FA1C79300E89470 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				39B43F3B1FA7645000837ACE /* ViewUtils.swift */,
 				39B43F3D1FA7AAAA00837ACE /* LogSummaryView.swift */,
 				39B43F3F1FA7AAC500837ACE /* LogSummaryView.xib */,
+				39B43F3B1FA7645000837ACE /* ViewUtils.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -326,7 +326,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3992880D1FA1C61000E89470 /* LogHistoryViewController.swift in Sources */,
-				399288431FA1D03100E89470 /* AddLogViewController.swift in Sources */,
+				399288431FA1D03100E89470 /* LogDetailsViewController.swift in Sources */,
 				3992883D1FA1CC4900E89470 /* Log.swift in Sources */,
 				39C2CA4C1FA3EF0A0086BA87 /* DataManager.swift in Sources */,
 				39B43F3E1FA7AAAA00837ACE /* LogSummaryView.swift in Sources */,

@@ -316,7 +316,7 @@
                     <navigationItem key="navigationItem" title="AadhuEats" largeTitleDisplayMode="always" id="87M-Qh-mpw">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="LKe-3p-njt">
                             <connections>
-                                <segue destination="I4A-9w-vxR" kind="presentation" identifier="AddLog" id="cIK-PH-igR"/>
+                                <segue destination="I4A-9w-vxR" kind="presentation" identifier="LogDetails" id="cIK-PH-igR"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -331,7 +331,7 @@
         <!--Add Log-->
         <scene sceneID="Ugh-ue-sOe">
             <objects>
-                <viewController id="ead-k6-7qd" customClass="AddLogViewController" customModule="AadhuEats" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ead-k6-7qd" customClass="LogDetailsViewController" customModule="AadhuEats" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cl1-ia-3lb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -451,7 +451,7 @@
                     <connections>
                         <outlet property="breastOrientationControl" destination="gLK-F8-WNo" id="Kih-gi-ctw"/>
                         <outlet property="breastOrientationControlHeight" destination="B1A-iq-Sga" id="T1A-HT-8u9"/>
-                        <outlet property="datePicker" destination="yFn-pa-Nqz" id="Nwe-7L-Hcc"/>
+                        <outlet property="datePicker" destination="yFn-pa-Nqz" id="Hgj-0X-Zrc"/>
                         <outlet property="durationPicker" destination="LAW-Zo-sAw" id="uze-uV-TgQ"/>
                         <outlet property="durationPickerHeight" destination="Dt5-tV-4VJ" id="XXh-Qe-Aqa"/>
                         <outlet property="logTypeControl" destination="dss-1Y-VJP" id="GbV-RV-XEO"/>

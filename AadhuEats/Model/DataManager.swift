@@ -55,19 +55,29 @@ class DataManager {
             _logHistory.insert(matchedSummary, at: matchedIndex)
 
         } else { // Create new log summary and add to the log history
+            var logHistoryList = _logHistory
             let newLogSummary = LogSummary(date: log.date.absolute(), logs: [log])
-            _logHistory.append(newLogSummary)
+            logHistoryList.append(newLogSummary)
+            _logHistory = logHistoryList.sorted{$0.date > $1.date}
         }
 
         return true
     }
 
-    func deleteLog(at row: Int, in summaryIndex: Int) -> Bool {
-        var summaryLog = _logHistory.remove(at: summaryIndex)
-        summaryLog.logs.remove(at: row)
+    func replaceLog(at indexPath: IndexPath, with log: Log) -> Bool {
+        if deleteLog(at: indexPath) {
+            return addLog(log)
+        }
+
+        return false
+    }
+
+    func deleteLog(at indexPath: IndexPath) -> Bool {
+        var summaryLog = _logHistory.remove(at: indexPath.section)
+        summaryLog.logs.remove(at: indexPath.row)
 
         if summaryLog.logs.count > 0 {
-            _logHistory.insert(summaryLog, at: summaryIndex)
+            _logHistory.insert(summaryLog, at: indexPath.section)
         }
 
         return true
@@ -122,12 +132,12 @@ extension DataManager {
         let yesterdayLog3Date = calendar.date(from: dateComponents)!
 
         let todayLog1 = Log(date: todayLog1Date, type: .pumpSession, milkType: .breast, breastOrientation: .both, volume: 100, duration: 20)
-        let todayLog2 = Log(date: todayLog2Date, type: .breastFeed, milkType: .breast, breastOrientation: .right, volume: 100, duration: 40)
-        let todayLog3 = Log(date: todayLog3Date, type: .bottleFeed, milkType: .formula, breastOrientation: .none, volume: 100, duration: 50)
+        let todayLog2 = Log(date: todayLog2Date, type: .breastFeed, milkType: .breast, breastOrientation: .right, volume: 0, duration: 40)
+        let todayLog3 = Log(date: todayLog3Date, type: .bottleFeed, milkType: .formula, breastOrientation: .none, volume: 100, duration: 0)
 
         let yesterdayLog1 = Log(date: yesterdayLog1Date, type: .pumpSession, milkType: .breast, breastOrientation: .both, volume: 100, duration: 20)
-        let yesterdayLog2 = Log(date: yesterdayLog2Date, type: .breastFeed, milkType: .breast, breastOrientation: .left, volume: 100, duration: 40)
-        let yesterdayLog3 = Log(date: yesterdayLog3Date, type: .bottleFeed, milkType: .breast, breastOrientation: .none, volume: 100, duration: 50)
+        let yesterdayLog2 = Log(date: yesterdayLog2Date, type: .breastFeed, milkType: .breast, breastOrientation: .left, volume: 0, duration: 40)
+        let yesterdayLog3 = Log(date: yesterdayLog3Date, type: .bottleFeed, milkType: .breast, breastOrientation: .none, volume: 100, duration: 0)
 
         let todayLogSummaryDate = newDate.absolute()
         let yesterdayLogSummaryDate = newDate.previous()

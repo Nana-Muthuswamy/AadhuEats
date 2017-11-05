@@ -1,5 +1,5 @@
 //
-//  AddLogViewController.swift
+//  LogDetailsViewController.swift
 //  AadhuEats
 //
 //  Created by Nana on 10/26/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddLogViewController: UIViewController {
+class LogDetailsViewController: UIViewController {
 
     @IBOutlet weak var logTypeControl: UISegmentedControl!
 
@@ -29,6 +29,9 @@ class AddLogViewController: UIViewController {
     // Log Model
     var model = Log(date: Date(), type: .pumpSession, milkType: .breast, breastOrientation: .none, volume: 0, duration: 0)
 
+    // Selected Log index, if editing existing log
+    var selectedLogIndexPath: IndexPath?
+
     // MARK: View Controller Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,20 +42,34 @@ class AddLogViewController: UIViewController {
         defaultHeights.updateValue(milkTypeControlHeight.constant, forKey: milkTypeControlHeight)
         defaultHeights.updateValue(breastOrientationControlHeight.constant, forKey: breastOrientationControlHeight)
 
+        // Setup Log Date picker
+        setupDatePicker()
+        // Refresh UI with model data
+        refreshUIData()
         // Display default Pump session log details
         logTypeSelected(logTypeControl)
-        // Setup Log Date picker
     }
 
     // MARK: Util Methods
 
     func saveModel() {
-        if (DataManager.shared.addLog(model) == false) {
-            let alert = UIAlertController(title: "Operation Failed", message: "Unable to create new log.", preferredStyle: .actionSheet)
-            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (action) in
-                self.dismiss(animated: true, completion: nil)
-            }))
-            show(alert, sender: self)
+
+        if let pathToReplaceLog = selectedLogIndexPath {
+            if (DataManager.shared.replaceLog(at: pathToReplaceLog, with: model) == false) {
+                let alert = UIAlertController(title: "Operation Failed", message: "Unable to create new log.", preferredStyle: .actionSheet)
+                alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (action) in
+                    self.dismiss(animated: true, completion: nil)
+                }))
+                show(alert, sender: self)
+            }
+        } else {
+            if (DataManager.shared.addLog(model) == false) {
+                let alert = UIAlertController(title: "Operation Failed", message: "Unable to create new log.", preferredStyle: .actionSheet)
+                alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (action) in
+                    self.dismiss(animated: true, completion: nil)
+                }))
+                show(alert, sender: self)
+            }
         }
     }
 
@@ -82,7 +99,7 @@ class AddLogViewController: UIViewController {
         }
     }
 
-    func updateUI(for logType: LogType) {
+    func updateUILayout(for logType: LogType) {
         switch logType {
         case .pumpSession:
             // Remove irrelevant fields
@@ -131,12 +148,21 @@ class AddLogViewController: UIViewController {
         }
     }
 
+    func refreshUIData() {
+        datePicker.setDate(model.date, animated: true)
+        logTypeControl.selectedSegmentIndex = model.type.rawValue
+        milkTypeControl.selectedSegmentIndex = model.milkType.rawValue
+        breastOrientationControl.selectedSegmentIndex = model.breastOrientation.rawValue
+        durationPicker.selectRow(model.duration, inComponent: 0, animated: true)
+        volumePicker.selectRow(model.volume, inComponent: 0, animated: true)
+    }
+
     func setupDatePicker() {
         datePicker.calendar = Calendar.autoupdatingCurrent
         datePicker.locale = Locale.autoupdatingCurrent
         datePicker.timeZone = TimeZone.autoupdatingCurrent
-        datePicker.setDate(model.date, animated: true)
-        datePicker.maximumDate = model.date.endOfDay()
+        datePicker.setDate(model.date, animated: false)
+        datePicker.maximumDate = Date().endOfDay()
     }
 
     // MARK: Action Methods
@@ -145,7 +171,7 @@ class AddLogViewController: UIViewController {
 
         guard let logType = LogType(rawValue: sender.selectedSegmentIndex) else {return}
         // Update UI and Model for selected log type
-        updateUI(for: logType)
+        updateUILayout(for: logType)
     }
 
     @IBAction func saveLog(_ sender: Any) {
@@ -160,7 +186,7 @@ class AddLogViewController: UIViewController {
 }
 
 // MARK: Picker View Extension
-extension AddLogViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+extension LogDetailsViewController: UIPickerViewDelegate, UIPickerViewDataSource {
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 2

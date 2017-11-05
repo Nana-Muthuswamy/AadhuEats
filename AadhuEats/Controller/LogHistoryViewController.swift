@@ -120,15 +120,28 @@ class LogHistoryViewController: UIViewController, UITableViewDataSource, UITable
     }
     // TBD: Data operations done in delegate method. Instead should make use of data source methods.
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let rowAction = UITableViewRowAction(style: .default, title: "Remove") { (action, path) in
-            _ = DataManager.shared.deleteLog(at: indexPath.logRow(), in: indexPath.section)
-            self.tableView.reloadData()
+        let removeRowAction = UITableViewRowAction(style: .destructive, title: "Remove") { (action, path) in
+            if (DataManager.shared.deleteLog(at: IndexPath(row: indexPath.logRow(), section: indexPath.section))) {
+                self.tableView.reloadData()
+            }
         }
-        return [rowAction]
+        let editRowAction = UITableViewRowAction(style: .normal, title: "Edit") { (action, path) in
+            self.performSegue(withIdentifier: kLogDetailsSegue, sender: indexPath)
+        }
+        return [removeRowAction,editRowAction]
     }
 
     // MARK: Segue
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == kLogDetailsSegue {
+            guard let targetViewController = segue.destination.contentViewController as? LogDetailsViewController else {return}
+            if let indexPath = sender as? IndexPath {
+                targetViewController.selectedLogIndexPath = IndexPath(row: indexPath.logRow(), section: indexPath.section)
+                targetViewController.model = logHistoryData[indexPath.section].logs[indexPath.logRow()]
+            }
+        }
+    }
 }
 
 // File scoped extension to return decremented row values of indexpath applicable just for this controller class
