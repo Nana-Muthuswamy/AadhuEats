@@ -16,10 +16,6 @@ struct Log: Exportable, DateFormatable {
     var volume: Int
     var duration: Int
 
-    var displayDate: String {
-        return Log.dateFormatter.string(from: date)
-    }
-
     var displayTime: String {
         return Log.timeFormatter.string(from: date)
     }
@@ -44,7 +40,7 @@ struct Log: Exportable, DateFormatable {
 
     init?(source:Dictionary<String,Any>) {
         // Guard the initiation source
-        guard let logDateStr = source[kDate] as? String, let logDate = Log.dateFormatter.date(from:logDateStr),
+        guard let logDateStr = source[kDate] as? String, let logDate = Log.dateTimeFormatter.date(from:logDateStr),
             let logTypeRaw = source[kType] as? Int, let logType = LogType(rawValue: logTypeRaw),
             let logMilkTypeRaw = source[kMilkType] as? Int, let logMilkType = MilkType(rawValue: logMilkTypeRaw),
             let logBreastOrientationRaw = source[kBreastOrientation] as? Int, let logBreastOrientation = BreastOrientation(rawValue: logBreastOrientationRaw),
@@ -68,7 +64,7 @@ struct Log: Exportable, DateFormatable {
     func export() -> Dictionary<String,Any> {
 
         var exportDict = Dictionary<String,Any>()
-        exportDict.updateValue(Log.dateFormatter.string(from: date), forKey: kDate)
+        exportDict.updateValue(Log.dateTimeFormatter.string(from: date), forKey: kDate)
         exportDict.updateValue(type.rawValue, forKey: kType)
         exportDict.updateValue(milkType.rawValue, forKey: kMilkType)
         exportDict.updateValue(breastOrientation.rawValue, forKey: kBreastOrientation)

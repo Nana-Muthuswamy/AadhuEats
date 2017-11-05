@@ -26,6 +26,14 @@ extension DateFormatable {
 
         return formatter
     }
+    static var dateTimeFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.locale = Locale.autoupdatingCurrent
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .short
+
+        return formatter
+    }
     static var timeFormatter: DateFormatter {
         let formatter = DateFormatter()
         formatter.locale = Locale.autoupdatingCurrent
