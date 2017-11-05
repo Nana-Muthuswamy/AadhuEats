@@ -13,6 +13,9 @@ class DataManager {
     // Singleton Instance
     static let shared = DataManager()
 
+    // Cache file path
+    private let archiveURL = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("AadhuEatsLog")
+
     // Log History
     private var _logHistory: Array<LogSummary>
     var logHistory: Array<LogSummary> {
@@ -29,8 +32,9 @@ class DataManager {
     // Private Init to suppress instantiation
     private init() {
         _logHistory = Array<LogSummary>()
+
         // Load from saved logs, if present
-        if let savedLogHistory = UserDefaults.standard.array(forKey:"history") as? Array<Dictionary<String,Any>> {
+        if let savedLogHistory = NSKeyedUnarchiver.unarchiveObject(withFile: archiveURL.path) as? Array<Dictionary<String,Any>> {
             for logSummaryArr in savedLogHistory {
                 if let logSummary = LogSummary(source: logSummaryArr) {
                     _logHistory.append(logSummary)
@@ -38,7 +42,7 @@ class DataManager {
             }
         }
     }
-
+    
     // MARK: Util Methods
     // TBD: Error Handling
     func addLog(_ log: Log) -> Bool {
@@ -87,7 +91,7 @@ class DataManager {
     // TBD: CloudKit integration
     func reloadLogHistory() {
         // Reload from saved logs, if present
-        if let savedLogHistory = UserDefaults.standard.array(forKey:"history") as? Array<Dictionary<String,Any>> {
+        if let savedLogHistory = NSKeyedUnarchiver.unarchiveObject(withFile: archiveURL.path) as? Array<Dictionary<String,Any>> {
             _logHistory = Array<LogSummary>()
             for logSummaryArr in savedLogHistory {
                 if let logSummary = LogSummary(source: logSummaryArr) {
@@ -101,11 +105,7 @@ class DataManager {
     // TBD: CloudKit integration
     func cacheLogHistory() {
         // Save current logs
-        if _logHistory.count > 0 {
-            UserDefaults.standard.set(logHistoryCache, forKey: kSavedLogHistory)
-        } else { // Remove cached logs
-            UserDefaults.standard.removeObject(forKey: kSavedLogHistory)
-        }
+        NSKeyedArchiver.archiveRootObject(logHistoryCache, toFile: archiveURL.path)
     }
 }
 

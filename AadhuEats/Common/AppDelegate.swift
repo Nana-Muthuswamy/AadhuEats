@@ -16,12 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-
-        // Setup test data when no data exists.
-        if DataManager.shared.logHistory.count == 0 {
-            DataManager.shared.loadTestData()
-        }
-
+        
         return true
     }
 
